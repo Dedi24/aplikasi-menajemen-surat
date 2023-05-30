@@ -109,7 +109,8 @@
                         @else
                             <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
                             <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
-                            <li><a class="nav-link" href="{{ route('products.index') }}">Manage Product</a></li>
+                            <li><a class="nav-link" href="{{ route('klasifikasi-arsip.index') }}">Klasifikasi Arsip</a>
+                            </li>
                             <li><a class="nav-link" href="{{ route('identitas-pps.index') }}">Identitas Pps</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -144,11 +145,15 @@
                 @yield('content')
             </div>
         </main>
+        {{-- <div class="mt-3">
+            {{ $klasifikasi_arsips->links() }}
+        </div> --}}
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
 </body>
 
 </html>

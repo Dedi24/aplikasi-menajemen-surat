@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\IdentitasPpsController;
+use App\Http\Controllers\KlasifikasiArsipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-    Route::resource('products', ProductController::class);
+    Route::resource('klasifikasi-arsip', KlasifikasiArsipController::class);
     Route::get('identitas-pps', [IdentitasPpsController::class, 'index'])->name('identitas-pps.index');
     Route::get('create', [IdentitasPpsController::class, 'create'])->name('identitas-pps.create');
     Route::get('get-kota', [IdentitasPpsController::class, 'get_kota'])->name('get.kota');

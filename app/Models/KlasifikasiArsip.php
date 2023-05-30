@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class KlasifikasiArsip extends Model
 {
     use HasFactory;
-    protected $table = 'products';
+    protected $table = 'klasifikasi_arsips';
 
         /**
      * The attributes that are mass assignable.
