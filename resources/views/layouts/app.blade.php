@@ -1,159 +1,111 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="no-js" lang="">
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sufee Admin - HTML5 Admin Template</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
 
-    <title>{{ config('app.name', 'Aplikasi Menajement Surat') }}</title>
+    <link rel="stylesheet" href="{{ asset('template/assets/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/assets/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/assets/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/assets/css/cs-skin-elastic.css') }}">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="{{ asset('template/assets/scss/style.css') }}">
+    <link href="{{ asset('template/assets/css/lib/vector-map/jqvmap.min.css') }}" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- Scripts -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <script src="{{ asset('js/app.js') }}"></script>
-    {{-- <link href="{{ asset('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
 
 <body>
-    {{-- <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
 
-                    </ul>
+    <!-- Left Panel -->
+    @include('layouts.sidebar')
+    <!-- /#left-panel -->
+    <!-- Left Panel -->
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+        <!-- Header-->
+        <header id="header" class="header">
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+            @include('layouts.navbar')
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+        </header><!-- /header -->
+        <!-- Header-->
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+        <div class="breadcrumbs">
+            {{-- <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div> --}}
+            <div class="col-sm-12">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div> --}}
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto"></ul>
-
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                        @else
-                            <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
-                            <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
-                            <li><a class="nav-link" href="{{ route('klasifikasi-arsip.index') }}">Klasifikasi Arsip</a>
-                            </li>
-                            <li><a class="nav-link" href="{{ route('identitas-pps.index') }}">Identitas Pps</a></li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-
-        <main class="py-4">
-            <div class="container">
+        <div class="content mt-3">
+            <main>
                 @yield('content')
-            </div>
-        </main>
-        {{-- <div class="mt-3">
-            {{ $klasifikasi_arsips->links() }}
-        </div> --}}
-    </div>
+            </main>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.tailwindcss.com/?plugins=forms"></script>
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+    <script src="{{ asset('template/assets/js/vendor/jquery-2.1.4.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="{{ asset('template/assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('template/assets/js/main.js') }}"></script>
+
+
+    <script src="{{ asset('template/assets/js/lib/chart-js/Chart.bundle.js') }}"></script>
+    <script src="{{ asset('template/assets/js/dashboard.js') }}"></script>
+    <script src="{{ asset('template/assets/js/widgets.js') }}"></script>
+    <script src="{{ asset('template/assets/js/lib/vector-map/jquery.vmap.js') }}"></script>
+    <script src="{{ asset('template/assets/js/lib/vector-map/jquery.vmap.min.js') }}"></script>
+    <script src="{{ asset('template/assets/js/lib/vector-map/jquery.vmap.sampledata.js') }}"></script>
+    <script src="{{ asset('template/assets/js/lib/vector-map/country/jquery.vmap.world.js') }}"></script>
+    <script>
+        (function($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+    </script>
+
 </body>
 
 </html>
